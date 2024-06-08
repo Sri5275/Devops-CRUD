@@ -34,7 +34,6 @@ namespace CodeAnalysis.Models
             var analysisResult = new SchemaStaticAnalysisResult { 
                 Name = content.name,
                 Path = content.path,
-                Message = "Code analysis successful.",
                 Length = length,
                 FollowsFileNameConventions = followsFileNameConventions,
                 NumberOfMethods = numberOfMethods,
@@ -46,7 +45,7 @@ namespace CodeAnalysis.Models
                 HasGoodComments = hasGoodComments,
                 HasConsistentFormatting = hasConsistentFormatting,
                 HasPrivateKeys = hasPrivateKeys,
-
+                Message = "Code analysis successful.",  
                 Score = score
             };
 
@@ -60,7 +59,7 @@ namespace CodeAnalysis.Models
             var privateKeyPatterns = new List<Regex>
             {
                 new Regex("AKIA[0-9A-Z]{16}", RegexOptions.Compiled), // AWS Access Key ID
-                new Regex("(?i)private[_-]?key", RegexOptions.Compiled)
+                //new Regex("(?i)private[_-]?key", RegexOptions.Compiled)
             };
 
             foreach (var pattern in privateKeyPatterns)
